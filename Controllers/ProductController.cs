@@ -9,48 +9,60 @@ namespace BawlAPI.Controllers
     public class ProductController : ControllerBase
     {
 
-        private static List<Product> products = new List<Product>
-            {
-                new Product {
-                    Id = 1,
-                    Name = "Flannel shirt",
-                    Description = "Green thick flannel",
-                    Price = 20,CreatedAt="27 Jan 2023",
-                    CategoryId = 2,
-                    DiscountId = 4,
-                    InventoryId = 23
-                }
-            };
+        //private static List<Product> products = new List<Product>
+        //    {
+        //        new Product {
+        //            Id = 1,
+        //            Name = "Flannel shirt",
+        //            Description = "Green thick flannel",
+        //            Price = 20,CreatedAt="27 Jan 2023",
+        //            CategoryId = 2,
+        //            DiscountId = 4,
+        //            InventoryId = 23
+        //        }
+        //    };
+
+
+        //dataContext injection through the constructor, also the method will recognise the DataContext elememt witout adding the using keyword to import the Context
+        private readonly DataContext _context;
+        public ProductController(DataContext context)
+        {
+            _context = context;
+        }
+
+
 
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public async Task<ActionResult<List<Product>>> Get()
         {
-            return Ok(products);
+            return Ok(await _context.Products.ToListAsync());
         }
 
         [HttpPost]
-        public ActionResult<List<Product>> AddProduct(Product product)
+        public async Task<ActionResult<List<Product>>> AddProduct(Product product)
         {
-            products.Add(product);
-            return Ok(products);
+           _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            return Ok(await _context.Products.ToListAsync());
         }
 
         [HttpPut]
         public ActionResult<List<Product>> UpdateProduct(Product request)
         {
-            var product = products.Find(h => h.Id == request.Id);
-            if (product == null)
-                return BadRequest("The product you are looking for is not there!!!");
+            //var product = products.Find(h => h.Id == request.Id);
+            //if (product == null)
+            //    return BadRequest("The product you are looking for is not there!!!");
             
-            //write code to override the current object of the selected product!!!
+            ////write code to override the current object of the selected product!!!
 
-            return Ok(products);
+            return Ok();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Product> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = products.Find(h => h.Id == id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
                 return BadRequest("The product you are looking for is not there!!!");
             return Ok(product);
