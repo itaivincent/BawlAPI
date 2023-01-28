@@ -9,20 +9,6 @@ namespace BawlAPI.Controllers
     public class ProductController : ControllerBase
     {
 
-        //private static List<Product> products = new List<Product>
-        //    {
-        //        new Product {
-        //            Id = 1,
-        //            Name = "Flannel shirt",
-        //            Description = "Green thick flannel",
-        //            Price = 20,CreatedAt="27 Jan 2023",
-        //            CategoryId = 2,
-        //            DiscountId = 4,
-        //            InventoryId = 23
-        //        }
-        //    };
-
-
         //dataContext injection through the constructor, also the method will recognise the DataContext elememt witout adding the using keyword to import the Context
         private readonly DataContext _context;
         public ProductController(DataContext context)
