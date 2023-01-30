@@ -1,4 +1,5 @@
 ﻿using BawlAPI.Models;
+using BawlAPI.Services.ProductService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,28 +10,23 @@ namespace BawlAPI.Controllers
     public class ProductController : ControllerBase
     {
 
-        //dataContext injection through the constructor, also the method will recognise the DataContext elememt witout adding the using keyword to import the Context
-        private readonly DataContext _context;
-        public ProductController(DataContext context)
+        //dependency injection for the ProductService that is doing all the logic for our methods
+        private readonly IProductService _productService;    
+        public ProductController(IProductService productService)
         {
-            _context = context;
+            _productService = productService;      
         }
 
-
-
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> Get()
+        public ActionResult<List<Product>> Get()
         {
-            return Ok(await _context.Products.ToListAsync());
+            return Ok(_productService.Get());
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Product>>> AddProduct(Product product)
-        {
-           _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            return Ok(await _context.Products.ToListAsync());
+        public ActionResult<List<Product>> AddProduct(Product product)
+        {   
+            return Ok(_productService.AddProduct(product));
         }
 
         [HttpPut]
@@ -46,12 +42,9 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public ActionResult<Product> GetProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-                return BadRequest("The product you are looking for is not there!!!");
-            return Ok(product);
+            return Ok(_productService.GetProduct(id));
         }
 
     }
