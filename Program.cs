@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//letting the API know that it has to use the ProductService class whenever a controller wants to inject the IProductService
 builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
