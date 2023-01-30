@@ -7,6 +7,6 @@ namespace BawlAPI.Services.ProductService
         Task<List<Product>> Get();
         Task<List<Product>> AddProduct(Product product);
         Task<List<Product>> UpdateProduct(Product request);
-        Task<Product> GetProduct(int id);
+        Task<Product>  GetProduct(int id);
     }
 }
