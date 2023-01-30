@@ -23,6 +23,7 @@ namespace BawlAPI.Controllers
             return Ok(_productService.Get());
         }
 
+
         [HttpPost]
         public ActionResult<List<Product>> AddProduct(Product product)
         {   
