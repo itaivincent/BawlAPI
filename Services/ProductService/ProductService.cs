@@ -31,9 +31,11 @@ namespace BawlAPI.Services.ProductService
                 return product;
             }
 
-        public List<Product> UpdateProduct(Product request)
+        public Task<List<Product>> UpdateProduct(Product request)
         {
             throw new NotImplementedException();
         }
+
+   
     }
 }
