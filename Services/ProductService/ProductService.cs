@@ -31,9 +31,9 @@ namespace BawlAPI.Services.ProductService
                 return product;
             }
 
-        public Task<List<Product>> UpdateProduct(Product request)
+        public async Task<List<Product>> UpdateProduct(Product request)
         {
-            throw new NotImplementedException();
+            return await _context.Products.ToListAsync();
         }
 
    
