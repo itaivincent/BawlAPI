@@ -4,9 +4,9 @@ namespace BawlAPI.Services.ProductService
 {
     public interface IProductService
     {
-        Task<List<Product>> Get();
-        Task<List<Product>> AddProduct(Product product);
-        Task<List<Product>> UpdateProduct(Product request);
-        Task<Product>  GetProduct(int id);
+        Task<ServiceResponse<List<Product>>> Get();
+        Task<ServiceResponse<List<Product>>> AddProduct(Product product);
+        Task<ServiceResponse<List<Product>>> UpdateProduct(Product request);
+        Task<ServiceResponse<Product>>  GetProduct(int id);
     }
 }
