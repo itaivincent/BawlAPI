@@ -18,20 +18,20 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> Get()
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> Get()
         {
             return Ok( await _productService.Get());
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<List<Product>>> AddProduct(Product product)
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> AddProduct(Product product)
         {   
             return Ok( await _productService.AddProduct(product));
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Product>>> UpdateProduct(Product request)
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> UpdateProduct(Product request)
         {
             //var product = products.Find(h => h.Id == request.Id);
             //if (product == null)
@@ -44,7 +44,7 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int id)
         {
             return Ok( await _productService.GetProduct(id));
         }
