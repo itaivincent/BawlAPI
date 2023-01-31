@@ -25,7 +25,7 @@ namespace BawlAPI.Services.ProductService
             public async Task<ServiceResponse<List<Product>>> Get()
             {
                 return new ServiceResponse<List<Product>> { Data = await _context.Products.ToListAsync() };
-            }
+            } 
 
             public async Task<ServiceResponse<Product>> GetProduct(int id)
             {
