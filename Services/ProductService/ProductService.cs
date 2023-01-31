@@ -32,10 +32,10 @@ namespace BawlAPI.Services.ProductService
 
             }
 
-        public async Task<List<Product>> UpdateProduct(Product request)
-        {
-            return await _context.Products.ToListAsync();
-        }
+            public async Task<List<Product>> UpdateProduct(Product request)
+            {
+                return await _context.Products.ToListAsync();
+            }
 
    
     }

@@ -18,20 +18,20 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public async Task<ActionResult<List<Product>>> Get()
         {
-            return Ok(_productService.Get());
+            return Ok( await _productService.Get());
         }
 
 
         [HttpPost]
-        public ActionResult<List<Product>> AddProduct(Product product)
+        public async Task<ActionResult<List<Product>>> AddProduct(Product product)
         {   
-            return Ok(_productService.AddProduct(product));
+            return Ok( await _productService.AddProduct(product));
         }
 
         [HttpPut]
-        public ActionResult<List<Product>> UpdateProduct(Product request)
+        public async Task<ActionResult<List<Product>>> UpdateProduct(Product request)
         {
             //var product = products.Find(h => h.Id == request.Id);
             //if (product == null)
@@ -40,13 +40,13 @@ namespace BawlAPI.Controllers
             
             ////write code to override the current object of the selected product!!!
 
-            return Ok();
+            return Ok(await _productService.Get());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Product> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return Ok(_productService.GetProduct(id));
+            return Ok( await _productService.GetProduct(id));
         }
 
     }
