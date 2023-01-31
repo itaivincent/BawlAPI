@@ -15,11 +15,11 @@ namespace BawlAPI.Services.ProductService
 
             public async Task<ServiceResponse<List<Product>>> AddProduct(Product product)
             {
-            var serviceResponse = new ServiceResponse<List<Product>>();
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-            serviceResponse.Data = await _context.Products.ToListAsync();
-            return serviceResponse;
+                var serviceResponse = new ServiceResponse<List<Product>>();
+                _context.Products.Add(product);
+                await _context.SaveChangesAsync();
+                serviceResponse.Data = await _context.Products.ToListAsync();
+                return serviceResponse;
             }
 
             public async Task<ServiceResponse<List<Product>>> Get()
@@ -29,14 +29,17 @@ namespace BawlAPI.Services.ProductService
 
             public async Task<ServiceResponse<Product>> GetProduct(int id)
             {
-                var product = await _context.Products.FindAsync(id);              
-                return product;
+                var serviceResponse = new ServiceResponse<Product>();
+                serviceResponse.Data = await _context.Products.FindAsync(id);              
+                return  serviceResponse;
 
             }
 
             public async Task<ServiceResponse<List<Product>>> UpdateProduct(Product request)
             {
-                return await _context.Products.ToListAsync();
+                var serviceResponse = new ServiceResponse<List<Product>>();
+                serviceResponse.Data = await _context.Products.ToListAsync();
+                return serviceResponse;
             }
 
    
