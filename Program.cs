@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //registering automapper
-
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 //letting the API know that it has to use the ProductService class whenever a controller wants to inject the IProductService
 builder.Services.AddScoped<IProductService, ProductService>();
 

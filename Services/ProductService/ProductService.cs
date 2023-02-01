@@ -1,4 +1,5 @@
-﻿using BawlAPI.Dtos.Product;
+﻿using AutoMapper;
+using BawlAPI.Dtos.Product;
 using BawlAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,15 +10,19 @@ namespace BawlAPI.Services.ProductService
         //dataContext injection through the constructor, also the method will recognise the DataContext elememt witout adding the using keyword to import the Context
 
             private readonly DataContext _context;
-            public ProductService(DataContext context)
+            private readonly IMapper _mapper;
+            public ProductService(DataContext context, IMapper mapper)
             {
                 _context = context;
+                _mapper = mapper;
             }
+
+
 
             public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-                _context.Products.Add(product);
+                _context.Products.Add(_mapper.Map<GetProductDto>(product));
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = await _context.Products.ToListAsync();
                 return serviceResponse;
@@ -30,10 +35,11 @@ namespace BawlAPI.Services.ProductService
 
             public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
             {
-                var serviceResponse = new ServiceResponse<GetProductDto>();
-                serviceResponse.Data = await _context.Products.FindAsync(id);              
-                return  serviceResponse;
-
+            var serviceResponse = new ServiceResponse<GetProductDto>
+            {
+                Data = await _context.Products.FindAsync(id)
+            };
+            return  serviceResponse;
 
             }
 
