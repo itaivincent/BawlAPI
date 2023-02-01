@@ -7,7 +7,7 @@ namespace BawlAPI.Services.ProductService
     {
         Task<ServiceResponse<List<GetProductDto>>> Get();
         Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product);
-        Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(Product request);
+        Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(UpdateProductDto request);
         Task<ServiceResponse<GetProductDto>>  GetProduct(int id);
     }
 }

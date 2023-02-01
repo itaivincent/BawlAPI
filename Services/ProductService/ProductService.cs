@@ -17,7 +17,6 @@ namespace BawlAPI.Services.ProductService
                 _mapper = mapper;
             }
 
-
             public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();
