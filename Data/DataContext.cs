@@ -8,6 +8,6 @@ namespace BawlAPI.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
         // we have to use a DBset property to see a representation of tables in our database 
-        public DbSet<GetProductDto> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

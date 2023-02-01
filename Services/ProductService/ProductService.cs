@@ -18,35 +18,33 @@ namespace BawlAPI.Services.ProductService
             }
 
 
-
             public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-                _context.Products.Add(_mapper.Map<GetProductDto>(product));
+                _context.Products.Add(_mapper.Map<Product>(product));
                 await _context.SaveChangesAsync();
-                serviceResponse.Data = await _context.Products.ToListAsync();
+                serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
                 return serviceResponse;
             }
 
             public async Task<ServiceResponse<List<GetProductDto>>> Get()
             {
-                return new ServiceResponse<List<GetProductDto>> { Data = await _context.Products.ToListAsync() };
+                return new ServiceResponse<List<GetProductDto>> { Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync() };
             } 
 
             public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
             {
             var serviceResponse = new ServiceResponse<GetProductDto>
             {
-                Data = await _context.Products.FindAsync(id)
+                Data = _mapper.Map<GetProductDto>( _context.Products.FirstOrDefault(c => c.Id == id))
             };
-            return  serviceResponse;
-
+            return  serviceResponse; 
             }
 
             public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(Product request)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-                serviceResponse.Data = await _context.Products.ToListAsync();
+                serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
                 return serviceResponse;
             }
 
