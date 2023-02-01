@@ -1,4 +1,5 @@
-﻿using BawlAPI.Models;
+﻿using BawlAPI.Dtos.Product;
+using BawlAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BawlAPI.Data
@@ -7,6 +8,6 @@ namespace BawlAPI.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
         // we have to use a DBset property to see a representation of tables in our database 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<GetProductDto> Products { get; set; }
     }
 }

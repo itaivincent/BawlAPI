@@ -1,4 +1,5 @@
-﻿using BawlAPI.Models;
+﻿using BawlAPI.Dtos.Product;
+using BawlAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BawlAPI.Services.ProductService
@@ -13,32 +14,32 @@ namespace BawlAPI.Services.ProductService
                 _context = context;
             }
 
-            public async Task<ServiceResponse<List<Product>>> AddProduct(Product product)
+            public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product)
             {
-                var serviceResponse = new ServiceResponse<List<Product>>();
+                var serviceResponse = new ServiceResponse<List<GetProductDto>>();
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = await _context.Products.ToListAsync();
                 return serviceResponse;
             }
 
-            public async Task<ServiceResponse<List<Product>>> Get()
+            public async Task<ServiceResponse<List<GetProductDto>>> Get()
             {
-                return new ServiceResponse<List<Product>> { Data = await _context.Products.ToListAsync() };
+                return new ServiceResponse<List<GetProductDto>> { Data = await _context.Products.ToListAsync() };
             } 
 
-            public async Task<ServiceResponse<Product>> GetProduct(int id)
+            public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
             {
-                var serviceResponse = new ServiceResponse<Product>();
+                var serviceResponse = new ServiceResponse<GetProductDto>();
                 serviceResponse.Data = await _context.Products.FindAsync(id);              
                 return  serviceResponse;
 
 
             }
 
-            public async Task<ServiceResponse<List<Product>>> UpdateProduct(Product request)
+            public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(Product request)
             {
-                var serviceResponse = new ServiceResponse<List<Product>>();
+                var serviceResponse = new ServiceResponse<List<GetProductDto>>();
                 serviceResponse.Data = await _context.Products.ToListAsync();
                 return serviceResponse;
             }
