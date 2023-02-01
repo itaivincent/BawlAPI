@@ -40,13 +40,12 @@ namespace BawlAPI.Services.ProductService
             return  serviceResponse; 
             }
 
-            public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(Product request)
+            public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(UpdateProductDto request)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();
                 serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
                 return serviceResponse;
             }
 
-   
     }
 }
