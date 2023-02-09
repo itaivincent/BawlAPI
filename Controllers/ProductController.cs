@@ -22,6 +22,8 @@ namespace BawlAPI.Controllers
         public async Task<ActionResult<ServiceResponse<List<GetProductDto>>>> Get()
         {
             return Ok( await _productService.Get());
+
+
         }
 
 
