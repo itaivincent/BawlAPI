@@ -44,7 +44,7 @@ namespace BawlAPI.Controllers
             
             ////write code to override the current object of the selected product!!!
 
-            return Ok(await _productService.Get());
+            return Ok(await _productService.Get()  );
         }
 
         [HttpGet("{id}")]
