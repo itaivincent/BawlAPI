@@ -24,6 +24,7 @@ namespace BawlAPI.Controllers
             return Ok( await _productService.Get());
 
 
+
         }
 
 
