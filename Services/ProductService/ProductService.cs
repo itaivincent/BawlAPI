@@ -39,9 +39,7 @@ namespace BawlAPI.Services.ProductService
             };
             return  serviceResponse; 
             }
-        
-
-
+      
 
             public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(UpdateProductDto request)
             {
