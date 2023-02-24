@@ -19,11 +19,10 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ServiceResponse<List<GetProductDto>>>> Get()
+        public  IEnumerable<Product> Get()
         {
-            return Ok( await _productService.Get());
+            return _productService.Get();
         }
-
 
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<List<GetProductDto>>>> AddProduct(AddProductDto product)
@@ -41,7 +40,7 @@ namespace BawlAPI.Controllers
             
             ////write code to override the current object of the selected product!!!
 
-            return Ok(await _productService.Get()  );
+            return Ok( _productService.Get());
 
         }
 
