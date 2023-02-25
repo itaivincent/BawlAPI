@@ -26,8 +26,7 @@ namespace BawlAPI.Services.ProductService
                 return serviceResponse;
 
             }
-
-         
+   
             public IEnumerable<Product> Get()
             {
                // return new ServiceResponse<List<GetProductDto>> { Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync() };
