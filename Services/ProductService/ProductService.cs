@@ -26,11 +26,23 @@ namespace BawlAPI.Services.ProductService
                 return serviceResponse;
 
             }
-   
-            public IEnumerable<Product> Get()
+
+
+        //public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto product)
+        //{
+        //    var serviceResponse = new ServiceResponse<List<GetProductDto>>();
+        //    _context.Products.Add(_mapper.Map<Product>(product));
+        //    await _context.SaveChangesAsync();
+        //    serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
+        //    return serviceResponse;
+
+        //}
+
+             public  List<Product> Get()
             {
-               // return new ServiceResponse<List<GetProductDto>> { Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync() };
-                   return _context.Products.AsEnumerable();
+              // var list =  new ServiceResponse<List<Product>> { Data =  _context.Products.ToList() };
+                 var list =  _context.Products.ToList();
+                 return list; 
             } 
 
             public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
@@ -42,7 +54,6 @@ namespace BawlAPI.Services.ProductService
             return  serviceResponse; 
             }
       
-
             public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(UpdateProductDto request)
             {
                 var serviceResponse = new ServiceResponse<List<GetProductDto>>();

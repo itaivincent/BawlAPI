@@ -19,9 +19,19 @@ namespace BawlAPI.Controllers
         }
 
         [HttpGet]
-        public  IEnumerable<Product> Get()
+        public async Task<IActionResult> Get()
         {
-            return _productService.Get();
+            try
+            {
+                var result = _productService.Get();
+
+                return StatusCode(200, result);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest();
+            }
+                          
         }
 
         [HttpPost]
