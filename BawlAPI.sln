@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BawlAPI", "BawlAPI.csproj", "{9FEBEF33-9F94-4079-88F4-9D82E9560B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BawlApiTest", "..\BawlApiTest\BawlApiTest.csproj", "{0F32ABF0-1726-453B-B12A-76232FDC0526}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BawlApiUnitTest", "..\BawlApiTest\BawlApiUnitTest.csproj", "{0F32ABF0-1726-453B-B12A-76232FDC0526}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BawlApiMsTest", "..\BawlApiMsTest\BawlApiMsTest.csproj", "{B370825F-D7BE-4DA4-9AF0-0055BE473D5C}"
 EndProject

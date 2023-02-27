@@ -24,12 +24,11 @@ namespace BawlAPI.Controllers
             try
             {
                 var result = _productService.Get();
-
                 return StatusCode(200, result);
             }
             catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
                           
         }
