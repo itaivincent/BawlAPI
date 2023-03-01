@@ -45,6 +45,7 @@ namespace BawlAPI.Services.ProductService
             {
               // var list =  new ServiceResponse<List<Product>> { Data =  _context.Products.ToList() };
                  var list =  _context.Products.ToList();
+
                  return list; 
             } 
 
