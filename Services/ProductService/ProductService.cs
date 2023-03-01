@@ -23,7 +23,7 @@ namespace BawlAPI.Services.ProductService
                 _context.Products.Add(_mapper.Map<Product>(product));
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
-                return serviceResponse;
+                return serviceResponse; 
 
             }
 
