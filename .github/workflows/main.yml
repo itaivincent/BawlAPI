@@ -25,6 +25,6 @@ jobs:
         run: dotnet build ./BawlAPI --configuration Release --no-restore
        
       - name: Publish
-        run: dontnet Publish /BawlAPI --configuration Release --no-build
+        run: dotnet Publish /BawlAPI --configuration Release --no-build
      
      
