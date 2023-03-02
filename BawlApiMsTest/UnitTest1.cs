@@ -8,8 +8,6 @@ namespace BawlApiMsTest
         [TestMethod]
         public void TestMethod1()
         {
-
-
         }
     }
 }
