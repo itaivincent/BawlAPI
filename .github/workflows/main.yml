@@ -19,12 +19,12 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: dotnet restore ./BawlAPI.sln
+        run: dotnet restore ./BawlAPI
         
       - name: Build
-        run: dotnet build ./BawlAPI.sln --configuration Release --no-restore
+        run: dotnet build ./BawlAPI --configuration Release --no-restore
        
       - name: Publish
-        run: dontnet Publish /BawlAPI.sln --configuration Release --no-build
+        run: dontnet Publish /BawlAPI --configuration Release --no-build
      
      
