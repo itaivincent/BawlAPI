@@ -41,6 +41,7 @@ namespace BawlAPI.Services.ProductService
 
 
 
+        //Method changed for unit testing
              public  List<Product> Get()
             {
               // var list =  new ServiceResponse<List<Product>> { Data =  _context.Products.ToList() };
