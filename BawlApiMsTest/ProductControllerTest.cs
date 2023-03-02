@@ -33,7 +33,7 @@ namespace BawlApiMsTest
         }
 
         //test method to assert if we are getting our products from the get method
-        [TestMethod]
+        [TestMethod] 
         public async Task GetProductTest()
         {
             //this is the autofixture creating fake object data using formating from the data transfer object
