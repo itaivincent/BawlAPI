@@ -50,6 +50,7 @@ namespace BawlAPI.Services.ProductService
                  return list; 
             } 
 
+        //get individual object of the products
             public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
             {
             var serviceResponse = new ServiceResponse<GetProductDto>
