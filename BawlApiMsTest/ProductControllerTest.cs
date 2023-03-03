@@ -36,6 +36,7 @@ namespace BawlApiMsTest
         [TestMethod] 
         public async Task GetProductTest()
         {
+
             //this is the autofixture creating fake object data using formating from the data transfer object
             var productList = _fixture.CreateMany<Product>(3).ToList();
 
