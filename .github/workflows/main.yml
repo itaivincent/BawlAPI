@@ -23,13 +23,13 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: dotnet restore ./BawlAPI/BawlAPI.sln
+        run: dotnet restore BawlAPI
         
       - name: Build
-        run: dotnet build ./BawlAPI/BawlAPI.sln --configuration Release --no-restore
+        run: dotnet build BawlAPI --configuration Release --no-restore
        
       - name: Publish
-        run: dotnet publish ./BawlAPI/BawlAPI.sln -c Release --no-build --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish BawlAPI -c Release --no-build --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
