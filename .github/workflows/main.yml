@@ -7,7 +7,7 @@ on:
     - master
 
 env:
-  AZURE_WEBAPP_NAME: BA]awlAPI
+  AZURE_WEBAPP_NAME: BawlAPI
   AZURE_WEBAPP_PACKAGE_PATH: '.'
 
 jobs:
