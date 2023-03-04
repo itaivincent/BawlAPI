@@ -7,12 +7,12 @@ on:
     - master
 
 env:
-  AZURE_WEBAPP_NAME: bawl
+  AZURE_WEBAPP_NAME: BA]awlAPI
   AZURE_WEBAPP_PACKAGE_PATH: '.'
 
 jobs:
   publish:
-    runs-on: Windows-latest
+    runs-on: windows-latest
     
     steps:
       - uses: actions/checkout@v3
@@ -23,20 +23,20 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: dotnet restore BawlAPI/BawlAPI.sln
+        run: dotnet restore BawlAPI
         
       - name: Build
-        run: dotnet build BawlAPI/BawlAPI.sln --configuration Release --no-restore
+        run: dotnet build BawlAPI --configuration Release --no-restore
        
       - name: Publish
-        run: dotnet publish BawlAPI/BawlAPI.sln -c Release --no-build --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish BawlAPI -c Release --no-build --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/BawlAPI'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/BawlAPI'
      
      
         
