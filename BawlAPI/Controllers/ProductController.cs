@@ -53,6 +53,8 @@ namespace BawlAPI.Controllers
 
         }
 
+        //this is the method for getting a single model of the product 
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<GetProductDto>>> GetProduct(int id)
         {
