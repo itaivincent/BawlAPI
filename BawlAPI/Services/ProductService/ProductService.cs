@@ -56,11 +56,11 @@ namespace BawlAPI.Services.ProductService
         //get individual object of the products
             public async Task<ServiceResponse<GetProductDto>> GetProduct(int id)
             {
+
             var serviceResponse = new ServiceResponse<GetProductDto>
             {
                 Data = _mapper.Map<GetProductDto>( _context.Products.FirstOrDefault(c => c.Id == id))
             };
-
 
             return  serviceResponse;
 
