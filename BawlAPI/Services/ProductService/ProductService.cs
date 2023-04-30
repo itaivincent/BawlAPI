@@ -59,9 +59,9 @@ namespace BawlAPI.Services.ProductService
             {
                 Data = _mapper.Map<GetProductDto>( _context.Products.FirstOrDefault(c => c.Id == id))
             };
-            return  serviceResponse; 
-            }
+            return  serviceResponse;
 
+            }
 
       
             public async Task<ServiceResponse<List<GetProductDto>>> UpdateProduct(UpdateProductDto request)
