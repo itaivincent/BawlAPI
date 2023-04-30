@@ -61,8 +61,6 @@ namespace BawlAPI.Services.ProductService
             };
             return  serviceResponse;
 
-
-
             }
 
       
