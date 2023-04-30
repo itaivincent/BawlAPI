@@ -48,7 +48,8 @@ namespace BawlAPI.Services.ProductService
             {
                var list =  new ServiceResponse<GetProductDto> { Data =  _mapper.Map<GetProductDto>(_context.Products.ToList()) };        
 
-               return list; 
+               return list;
+
             }
 
 
