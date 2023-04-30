@@ -59,6 +59,8 @@ namespace BawlAPI.Services.ProductService
             {
                 Data = _mapper.Map<GetProductDto>( _context.Products.FirstOrDefault(c => c.Id == id))
             };
+
+
             return  serviceResponse;
 
             }
