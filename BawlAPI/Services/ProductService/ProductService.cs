@@ -44,8 +44,7 @@ namespace BawlAPI.Services.ProductService
         //Method changed for unit testing
              public async Task<ServiceResponse<GetProductDto>> Get()
             {
-               var list =  new ServiceResponse<GetProductDto> { Data =  _mapper.Map<GetProductDto>(_context.Products.ToList()) };
-                // var list =  _context.Products.ToList();
+               var list =  new ServiceResponse<GetProductDto> { Data =  _mapper.Map<GetProductDto>(_context.Products.ToList()) };        
 
                return list; 
             }
